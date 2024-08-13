@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Querying inventory for pick list options on a product using the GraphQL API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+  </head>
+  <body>
+    <main class="container-fluid">
+      <div>
+        <h1>Querying inventory for pick list options on a product using the GraphQL API</h1>
+        <p><small>BigCommerce store: <a href="https://peters-everything2-store.mybigcommerce.com/">https://peters-everything2-store.mybigcommerce.com/</a></small></p>
+        <p>Here's a summary of the approach:</p>
+        <ol>
+          <li>We first query the product details using its ID, which includes information about the product's pick list options.</li>
+          <li>
+            From this initial query, we extract the product IDs associated with each pick list option.
+          </li>
+          <li>We then make a second query using these extracted product IDs to fetch the inventory information for each option.</li>
+          <li>
+            Finally, we merge the product option data with the corresponding inventory data, creating a comprehensive view of each pick list option and its current inventory status.
+          </li>
+        </ol>
+        <p>This two-step query process allows us to efficiently retrieve both the product structure (options) and the real-time inventory data for those options, providing a complete picture of the product's available configurations and their stock levels.</p>
+        <div class="small-text">
+            <p>Try using the ids `370` and `371` in the interactive widget. These product IDs correspond to the follwoing products on the store:</p>
+            <ul>
+              <li>370: <a href="https://peters-everything2-store.mybigcommerce.com/care-package-1/" target="_blank">Care Package 1</a></li>
+              <li>371: <a href="https://peters-everything2-store.mybigcommerce.com/care-package-2/" target="_blank">Care Package 2</a></li>
+            </ul>
+            <details open>
+              <summary>Auth token details</summary>
+              <p>Here's a temporary Storefront GraphQL token that can be used for the interactive widget:</p>
+              <code>eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOlsxXSwiY29ycyI6WyJodHRwczovLzg0NmQ4NmQzLTY3NTgtNDg0NS1hMmUzLTYzMTIwNDdhN2VmMC0wMC0xcDZ0OW1rMzF0bjM4LmtpcmsucmVwbGl0LmRldiIsImh0dHBzOi8vZ3JhcGhxbC1waWNrbGlzdC1wcm9kdWN0LW9wdGlvbnMucmVwbGl0LmFwcCJdLCJlYXQiOjE3NTQ2NzU4MDcsImlhdCI6MTcyMzUyMjI4MCwiaXNzIjoiQkMiLCJzaWQiOjEwMDI3NTM0ODMsInN1YiI6Im1yMGowN3Q2eXl1NXY4aDZ0NmJrb2VndmR4ZmJ5cjgiLCJzdWJfdHlwZSI6MiwidG9rZW5fdHlwZSI6MX0.Vp8V2CtiQwU6YoTL6p9ykMkP-GqvJVYPvsQJis-jdE1WKiZF4a_sPB9H9VbbEjCxEhrJYQImfQE9xANFq2nfGg</code>
+            </details>
+        </div>
+      </div>
+      <div id="root"></div>
+    </main>
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
+</html>
