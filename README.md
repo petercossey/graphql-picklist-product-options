@@ -1,17 +1,12 @@
-## Running React on Replit
+## Querying inventory for pick list options on a product using the GraphQL API
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+Quick demo/screencast for using Storefront GraphQL API to grab inventory for Pick List options: https://www.loom.com/share/6c4bc96d9500405194d1343c65b86046?sid=3f599386-9baa-4fc1-9ca6-97be3429f9eb
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+Here's a summary of the approach:
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+1. We first query the product details using its ID, which includes information about the product's pick list options.
+1. From this initial query, we extract the product IDs associated with each pick list option.
+1. We then make a second query using these extracted product IDs to fetch the inventory information for each option.
+1. Finally, we merge the product option data with the corresponding inventory data, creating a comprehensive view of each pick list option and its current inventory status.
 
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
-
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
-
-### Typescript
-
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+This two-step query process allows us to efficiently retrieve both the product structure (options) and the real-time inventory data for those options, providing a complete picture of the product's available configurations and their stock levels.
